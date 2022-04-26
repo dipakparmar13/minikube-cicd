@@ -16,7 +16,7 @@ jobs:
       run: |
         export SHELL=/bin/bash
         pwd && ls
-        docker build -t dipak ./
+        docker build -t dipak .
         echo -n "verifying images:"
         docker images        
     - name: Deploy to minikube
