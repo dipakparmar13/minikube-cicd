@@ -7,9 +7,6 @@ jobs:
     name: build example and deploy to minikube
     steps:
     - uses: actions/checkout@v2
-    #- name: Start minikube
-      #uses: medyagh/setup-minikube@master
-    
     - name: Try the cluster !
       run: kubectl get pods -A
     - name: Build image
@@ -24,9 +21,8 @@ jobs:
     - name: Deploy to minikube
       run:
         kubectl apply -f menifest.yml
-    - name: Test service URLs
-      run: |
-        minikube service list
-        minikube service example --url
-        echo "------------------opening the service------------------"
-        curl $(minikube service example --url)        
+    # - name: Test service URLs
+    #   run: |
+    #     minikube service list
+    #     minikube service example --url
+    #     curl $(minikube service example --url)        
