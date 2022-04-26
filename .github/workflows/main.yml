@@ -10,7 +10,7 @@ jobs:
     - name: permission
       run : |
         pwd
-        chmod 777 /home/runner
+        cd /home/dipak/_work/minikube-cicd/minikube-cicd
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     
