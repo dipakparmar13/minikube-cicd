@@ -16,7 +16,7 @@ jobs:
       run: |
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
-        docker build -f ./Dockerfile -t local/example .
+        docker build -t dipak /home/dipak/_work/minikube-cicd/minikube-cicd
         echo -n "verifying images:"
         docker images        
     - name: Deploy to minikube
