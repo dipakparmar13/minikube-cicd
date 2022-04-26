@@ -23,6 +23,8 @@ spec:
                       requests:
                           cpu: 25m
                           memory: 10Mi
+                      ports:
+                      - containerPort: 8080    
                  
 ---
 apiVersion: v1
