@@ -31,9 +31,25 @@ kind: Service
 metadata:
     name: example
 spec:
-    type: NodePort
     selector:
         app: example
     ports:
         - port: 5000
           targetPort: 5000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+spec:
+  rules:
+    - host: dipakparmar.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: example
+                port:
+                  number: 5000
