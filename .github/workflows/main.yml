@@ -7,10 +7,6 @@ jobs:
     name: build example and deploy to minikube
     steps:
     - uses: actions/checkout@v2
-    - name: permission
-      run : |
-        pwd
-        cd /home/dipak/_work/minikube-cicd/minikube-cicd
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     
