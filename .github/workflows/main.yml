@@ -21,4 +21,5 @@ jobs:
     - name: Deploy to minikube
       run:
         kubectl apply -f menifest.yml
+        kubectl delete -f deploy 
      
