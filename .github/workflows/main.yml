@@ -8,7 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: permission
-      run : chmod 777 /home/runner
+      run : |
+        pwd
+        chmod 777 /home/runner
     - name: Start minikube
       uses: medyagh/setup-minikube@master
     
