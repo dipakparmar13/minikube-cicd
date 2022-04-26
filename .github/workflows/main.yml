@@ -17,6 +17,7 @@ jobs:
         export SHELL=/bin/bash
         pwd
         ls
+        eval $(minikube -p minikube docker-env)
         docker build -t dipak ./app/
         echo -n "verifying images:"
         docker images        
