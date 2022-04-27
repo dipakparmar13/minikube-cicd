@@ -6,9 +6,9 @@ jobs:
     runs-on: self-hosted
     name: build example and deploy to minikube
     steps:
-    # - name: delete deploy 
-    #   run: |
-    #     kubectl delete deploy example
+    - name: delete deploy 
+      run: |
+        kubectl delete deploy example
     # - name: delete deploy app1
     #   run: |
     #     kubectl delete deploy my-app-v2
