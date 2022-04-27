@@ -39,21 +39,5 @@ spec:
         imagePullPolicy: Never
         image: dipak:latest
         ports:
-        - name: http
           containerPort: 5000
-        - name: probe
-          containerPort: 5000
-        env:
-        - name: VERSION
-          value: v1.0.0
-        livenessProbe:
-          httpGet:
-            path: /live
-            port: probe
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        readinessProbe:
-          httpGet:
-            path: /ready
-            port: probe
-          periodSeconds: 5
+       
