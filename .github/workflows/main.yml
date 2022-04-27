@@ -23,4 +23,4 @@ jobs:
         kubectl apply -f menifest.yml
     
     - name: delete image
-      run: docker rmi -f dipak
+      run: docker rmi -f dipak:latest
