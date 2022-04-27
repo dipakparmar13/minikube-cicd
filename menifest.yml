@@ -6,13 +6,11 @@ spec:
     selector:
         matchLabels:
             app: example
-            version: v1.0.0
     replicas: 2
     template:
         metadata:
             labels:
                 app: example
-                version: v1.0.0
         spec:
             containers:
                 - name: example-api
@@ -35,7 +33,6 @@ metadata:
 spec:
     selector:
         app: example
-        version: v1.0.0
     ports:
         - port: 5000
           targetPort: 5000
