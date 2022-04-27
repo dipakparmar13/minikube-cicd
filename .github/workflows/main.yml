@@ -6,6 +6,11 @@ jobs:
     runs-on: self-hosted
     name: build example and deploy to minikube
     steps:
+    - name: delete deploymet 
+      run: |
+        kubectl delete deploy example
+        kubectl delete svc example
+        kubectl delete ingress example
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -15,7 +20,7 @@ jobs:
         pwd
         ls
         eval $(minikube -p minikube docker-env)
-        docker build -t dipak ./app/
+        docker build -t dipak1: ./app/
         echo -n "verifying images:"
         docker images        
     - name: Deploy to minikube
