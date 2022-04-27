@@ -41,7 +41,7 @@ spec:
         - name: http
           containerPort: 8080
         - name: probe
-          containerPort: 8086
+          containerPort: 8080
         env:
         - name: VERSION
           value: v1.0.0
