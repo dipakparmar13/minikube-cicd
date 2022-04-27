@@ -23,5 +23,5 @@ jobs:
         docker images        
     - name: Deploy to service
       run:
-        kubectl apply -f menifest.yml
+        kubectl apply -f menifest2.yml
    
