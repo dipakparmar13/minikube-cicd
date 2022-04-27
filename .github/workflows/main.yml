@@ -24,4 +24,5 @@ jobs:
     - name: Deploy to minikube
       run:
         kubectl apply -f menifest.yml
-    
+        kubectl apply -f app1.yml
+        kubectl apply -f app2.yml
