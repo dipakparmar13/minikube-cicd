@@ -86,7 +86,7 @@ spec:
             containers:
                 - name: example-api-2
                   imagePullPolicy: Never
-                  image: dipak:latest
+                  image: deekshithsn/k8s-deployment-strategies
                   resources:
                       limits:
                           cpu: 50m
