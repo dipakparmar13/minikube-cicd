@@ -18,11 +18,6 @@ jobs:
         docker build -t dipak ./app/
         echo -n "verifying images:"
         docker images        
-    - name: delete deploymet 
-      run: |
-        kubectl delete deploy example
-        kubectl delete svc example
-    # kubectl delete ingress example-ingress
     - name: Deploy to minikube
       run:
         kubectl apply -f menifest.yml
