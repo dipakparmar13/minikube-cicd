@@ -4,7 +4,7 @@ on:
 jobs:
   job1:
     runs-on: self-hosted
-    name: build example and deploy to minikube
+    name: build example and deploy too minikube
     steps:
     - name: delete deploy 
       run: |
