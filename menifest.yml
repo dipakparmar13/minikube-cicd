@@ -53,3 +53,17 @@ spec:
                 name: example
                 port:
                   number: 5000
+          - path: /v1
+            pathType: Prefix
+            backend:
+              service:
+                name: my-app
+                port:
+                  number: 5000
+          - path: /v1
+            pathType: Prefix
+            backend:
+              service:
+                name: my-app-2
+                port:
+                  number: 5000
