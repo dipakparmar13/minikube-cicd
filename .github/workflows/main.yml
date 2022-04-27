@@ -30,9 +30,4 @@ jobs:
     - name: Deploy to service
       run:
         kubectl apply -f menifest.yml
-    - name: Deploy to app1.yml
-      run:
-        kubectl apply -f app1.yml
-    - name: Deploy to app2.yml
-      run: 
-        kubectl apply -f app2.yml
+   
