@@ -6,12 +6,12 @@ jobs:
     runs-on: self-hosted
     name: build example and deploy to minikube
     steps:
-    - name: delete deploy app1
+    - name: delete deploy 
       run: |
-        kubectl delete deploy my-app-v1
-    - name: delete deploy app2
-      run: |
-        kubectl delete deploy my-app-v2
+        kubectl delete deploy example
+    # - name: delete deploy app2
+    #   run: |
+    #     kubectl delete deploy my-app-v2
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
