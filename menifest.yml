@@ -119,7 +119,7 @@ spec:
     - host: dipak.com
       http:
         paths:
-          - path: /v1
+          - path: /
             pathType: Prefix
             backend:
               service:
