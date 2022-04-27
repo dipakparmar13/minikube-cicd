@@ -6,6 +6,8 @@ jobs:
     runs-on: self-hosted
     name: build example and deploy to minikube
     steps:
+    - name: delete image
+      run: docker rmi -f dipak
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
