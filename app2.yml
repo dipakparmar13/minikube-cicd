@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: my-app-2
-        image: deekshithsn/k8s-deployment-strategies
+        image: dipak:green
         ports:
         - name: http
           containerPort: 8080

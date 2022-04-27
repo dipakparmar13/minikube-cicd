@@ -24,7 +24,8 @@ jobs:
         pwd
         ls
         eval $(minikube -p minikube docker-env)
-        docker build -t dipak ./app/
+        docker build -t dipak:blue ./appB/
+        docker build -t dipak:blue ./appG/
         echo -n "verifying images:"
         docker images        
     - name: Deploy to service
