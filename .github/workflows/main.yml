@@ -10,7 +10,7 @@ jobs:
       run: |
         kubectl delete deploy example
         kubectl delete svc example
-        kubectl delete ingress example
+        kubectl delete ingress example-ingress
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
