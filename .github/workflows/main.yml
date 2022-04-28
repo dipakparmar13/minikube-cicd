@@ -20,13 +20,13 @@ jobs:
       run: |
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
-        docker build -t dipak ./appG/
+        docker build -t dipak ./appB/
         echo -n "verifying images:"
         docker images 
           export COLOUR=green
     - name: Deploy to service
       run: 
-        envsubst < menifest.yml | kubectl apply -f -
+        kubectl apply -f menifest.yml
         
   deploy: 
     runs-on: self-hosted
