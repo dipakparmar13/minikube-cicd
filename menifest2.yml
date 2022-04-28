@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: example
+    name: example-blue
 spec:
     selector:
         matchLabels:
             app: example
+            env: blue
     replicas: 2
     template:
         metadata:
             labels:
                 app: example
+                env: blue
         spec:
             containers:
                 - name: example-api
@@ -29,10 +31,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-    name: example
+    name: example-blue
 spec:
     selector:
         app: example
+        env: blue
     ports:
         - port: 5000
           targetPort: 5000
@@ -50,7 +53,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: example
+                name: example-$COLOUR
                 port:
                   number: 5000
          
