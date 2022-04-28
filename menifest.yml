@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: example
+    name: example-green
 spec:
     selector:
         matchLabels:
             app: example
+            env: green
     replicas: 2
     template:
         metadata:
             labels:
                 app: example
+                env: green
         spec:
             containers:
                 - name: example-api
@@ -33,6 +35,7 @@ metadata:
 spec:
     selector:
         app: example
+        env: green
     ports:
         - port: 5000
           targetPort: 5000
