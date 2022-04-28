@@ -26,7 +26,7 @@ jobs:
           export COLOUR=green
     - name: Deploy to service
       run: 
-        envsubst < menifest.yml | kubectl apply -f -
+        kubectl apply -f menifest.yml
         
   deploy: 
     runs-on: self-hosted
