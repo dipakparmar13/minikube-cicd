@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: delete deploy 
       run: |
-        kubectl delete deploy example
+        kubectl delete deploy example-green
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -35,7 +35,7 @@ jobs:
     steps:
     - name: delete deploy 
       run: |
-        kubectl delete deploy example
+        kubectl delete deploy example-blue
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -50,5 +50,4 @@ jobs:
     - name: Deploy to service
       run: 
         envsubst < menifest2.yml | kubectl apply -f -
-   
-   
+  

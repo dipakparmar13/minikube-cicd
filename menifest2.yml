@@ -56,4 +56,5 @@ spec:
                 name: example-$COLOUR
                 port:
                   number: 5000
+...
          
