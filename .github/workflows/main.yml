@@ -1,14 +1,42 @@
 name: CI
 on:
-  - push
+ push:
+   branches:
+     - dev
+     - main
 jobs:
-  job1:
+  stage:
     runs-on: self-hosted
-    name: build example and deploy too minikube
+    name: build example
+    if: github.ref == 'refs/heads/dev'
     steps:
-    # - name: delete deploy 
-    #   run: |
-    #     kubectl delete deploy example
+    - name: delete deploy 
+      run: |
+        kubectl delete deploy example
+    - uses: actions/checkout@v2
+    - name: Try the cluster !
+      run: kubectl get pods -A
+    - name: Build images
+      run: |
+        export SHELL=/bin/bash
+        pwd
+        ls
+        eval $(minikube -p minikube docker-env)
+        docker build -t dipak ./appG/
+        echo -n "verifying images:"
+        docker images        
+    - name: Deploy to service
+      run:
+        kubectl apply -f menifest.yml
+        
+  deploy: 
+    runs-on: self-hosted
+    name: deploy too minikube
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - name: delete deploy 
+      run: |
+        kubectl delete deploy example
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -24,4 +52,5 @@ jobs:
     - name: Deploy to service
       run:
         kubectl apply -f menifest2.yml
+   
    
