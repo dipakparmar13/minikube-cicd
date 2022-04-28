@@ -49,5 +49,5 @@ jobs:
         export COLOUR=blue
     - name: Deploy to service
       run: 
-        envsubst < menifest2.yml | kubectl apply -f -
+         kubectl apply -f menifest2.yml
   
