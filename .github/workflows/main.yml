@@ -19,15 +19,14 @@ jobs:
     - name: Build images
       run: |
         export SHELL=/bin/bash
-        pwd
-        ls
         eval $(minikube -p minikube docker-env)
         docker build -t dipak ./appG/
         echo -n "verifying images:"
-        docker images        
+        docker images 
+          export COLOUR=green
     - name: Deploy to service
-      run:
-        kubectl apply -f menifest.yml
+      run: 
+        envsubst < menifest.yml | kubectl apply -f -
         
   deploy: 
     runs-on: self-hosted
@@ -43,14 +42,13 @@ jobs:
     - name: Build images
       run: |
         export SHELL=/bin/bash
-        pwd
-        ls
         eval $(minikube -p minikube docker-env)
         docker build -t dipak ./appG/
         echo -n "verifying images:"
         docker images        
+        export COLOUR=blue
     - name: Deploy to service
-      run:
-        kubectl apply -f menifest2.yml
+      run: 
+        envsubst < menifest2.yml | kubectl apply -f -
    
    
