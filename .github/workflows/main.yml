@@ -10,7 +10,7 @@ jobs:
     name: build example
     if: github.ref == 'refs/heads/dev'
     steps:
-    - name: delete deploy 
+    - name: delete deployy
       run: |
         kubectl delete deploy example-green
     - uses: actions/checkout@v2
