@@ -17,7 +17,7 @@ spec:
             containers:
                 - name: example-api
                   imagePullPolicy: Never
-                  image: dipak:lates
+                  image: dipak:latest
                   ports:
                       - containerPort: 5000
 ---
