@@ -23,7 +23,6 @@ jobs:
         docker build -t dipak ./appB/
         echo -n "verifying images:"
         docker images 
-          export COLOUR=green
     - name: Deploy to service
       run: 
         kubectl apply -f menifest.yml
@@ -46,7 +45,6 @@ jobs:
         docker build -t dipak ./appG/
         echo -n "verifying images:"
         docker images        
-        export COLOUR=blue
     - name: Deploy to service
       run: 
          kubectl apply -f menifest2.yml
