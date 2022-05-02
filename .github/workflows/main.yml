@@ -8,7 +8,7 @@ jobs:
   stage:
     runs-on: self-hosted
     name: build example
-    if: github.ref == 'refs/heads/dev'
+    if: github.ref == 'refs/heads/green'
     steps:
     - name: delete deployy
       run: |
@@ -31,7 +31,7 @@ jobs:
   deploy: 
     runs-on: self-hosted
     name: deploy too minikube
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/blue'
     steps:
     - name: delete deploy 
       run: |
