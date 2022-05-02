@@ -17,14 +17,7 @@ spec:
             containers:
                 - name: example-api
                   imagePullPolicy: Never
-                  image: dipak:latest
-                  resources:
-                      limits:
-                          cpu: 50m
-                          memory: 100Mi
-                      requests:
-                          cpu: 25m
-                          memory: 10Mi
+                  image: dipak:lates
                   ports:
                       - containerPort: 5000
 ---
