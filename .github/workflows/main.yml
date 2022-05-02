@@ -2,8 +2,8 @@ name: CI
 on:
  push:
    branches:
-     - dev
-     - main
+     - green
+     - blue
 jobs:
   stage:
     runs-on: self-hosted
