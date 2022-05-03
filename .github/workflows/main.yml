@@ -45,7 +45,6 @@ jobs:
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
         docker build -t dipak ./prod/
-        kubectl delete replicaset example-blue-85977db98c
         echo -n "verifying images:"
         docker images        
     - name: Deploy to service
