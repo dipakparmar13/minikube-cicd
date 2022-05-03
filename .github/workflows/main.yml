@@ -2,17 +2,17 @@ name: CI
 on:
  push:
    branches:
-     - green
-     - blue
+     - prod
+     - stage
 jobs:
   stage:
     runs-on: self-hosted
     name: build example
-    if: github.ref == 'refs/heads/green'
+    if: github.ref == 'refs/heads/stage'
     steps:
-    - name: delete deployy
+    - name: delete replicaset
       run: |
-        kubectl delete deploy example-green
+        kubectl delete replicaset example-green-6498d5547b
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -20,7 +20,7 @@ jobs:
       run: |
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
-        docker build -t dipak ./appB/
+        docker build -t dipak ./stage/
         echo -n "verifying images:"
         docker images 
     - name: Deploy to service
@@ -30,11 +30,11 @@ jobs:
   deploy: 
     runs-on: self-hosted
     name: deploy too minikube
-    if: github.ref == 'refs/heads/blue'
+    if: github.ref == 'refs/heads/prod'
     steps:
-    - name: delete deploy 
+    - name: delete replicaset
       run: |
-        kubectl delete deploy example-blue
+        kubectl delete replicaset example-blue-85977db98c
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -42,7 +42,7 @@ jobs:
       run: |
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
-        docker build -t dipak ./appG/
+        docker build -t dipak ./prod/
         echo -n "verifying images:"
         docker images        
     - name: Deploy to service
