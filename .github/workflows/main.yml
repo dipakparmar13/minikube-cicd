@@ -23,9 +23,9 @@ jobs:
         docker build -t dipak ./stage/
         echo -n "verifying images:"
         docker images 
-    - name: Deploy to service
-      run: 
-        kubectl apply -f menifest2.yml
+#     - name: Deploy to service
+#       run: 
+#         kubectl apply -f menifest2.yml
         
   deploy: 
     runs-on: self-hosted
@@ -45,7 +45,7 @@ jobs:
         docker build -t dipak ./prod/
         echo -n "verifying images:"
         docker images        
-    - name: Deploy to service
-      run: 
-         kubectl apply -f menifest.yml
+#     - name: Deploy to service
+#       run: 
+#          kubectl apply -f menifest.yml
   
