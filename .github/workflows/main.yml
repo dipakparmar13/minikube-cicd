@@ -34,9 +34,9 @@ jobs:
     name: deploy too minikube
     if: github.ref == 'refs/heads/prod'
     steps:
-    - name: delete deploy
-      run: |
-        kubectl delete deploy example-blue 
+#     - name: delete deploy
+#       run: |
+#         kubectl delete deploy example-blue 
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
