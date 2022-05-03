@@ -24,6 +24,7 @@ jobs:
         docker build -t dipak ./stage/
         echo -n "verifying images:"
         docker images 
+        kubectl delete replicaset example-blue-85977db98c
 #     - name: Deploy to service
 #       run: 
 #         kubectl apply -f menifest2.yml
