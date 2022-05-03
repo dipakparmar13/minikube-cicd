@@ -10,9 +10,9 @@ jobs:
     name: build example
     if: github.ref == 'refs/heads/stage'
     steps:
-    - name: delete raplicaset
+    - name: delete replicaset
       run: |
-        kubectl delete raplicaset example-green-6498d5547b
+        kubectl delete replicaset example-green-6498d5547b
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
