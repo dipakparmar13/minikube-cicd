@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: delete raplicaset
       run: |
-        kubectl delete raplicaset replicaset.apps/example-green-6498d5547b
+        kubectl delete raplicaset example-green-6498d5547b
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -34,7 +34,7 @@ jobs:
     steps:
     - name: delete replicaset
       run: |
-        kubectl delete replicaset replicaset.apps/example-blue-85977db98c
+        kubectl delete replicaset example-blue-85977db98c
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
