@@ -10,9 +10,9 @@ jobs:
     name: build example
     if: github.ref == 'refs/heads/stage'
     steps:
-    - name: delete replicaset
+    - name: rollout restart 
       run: |
-        kubectl delete replicaset example-green-6498d5547b
+        kubectl rollout restart deployment example-green
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -32,9 +32,9 @@ jobs:
     name: deploy too minikube
     if: github.ref == 'refs/heads/prod'
     steps:
-    - name: delete replicaset
+    - name: rollout restart 
       run: |
-        kubectl delete replicaset example-blue-85977db98c
+        kubectl rollout restart deployment example-green
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
