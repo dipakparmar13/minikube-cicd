@@ -18,6 +18,7 @@ jobs:
       run: kubectl get pods -A
     - name: Build images
       run: |
+        pwd
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
         docker build -t dipak ./stage/
