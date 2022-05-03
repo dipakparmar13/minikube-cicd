@@ -34,9 +34,9 @@ jobs:
     name: deploy too minikube
     if: github.ref == 'refs/heads/prod'
     steps:
-#     - name: delete replicaset
-#       run: |
-#         kubectl delete replicaset example-blue-85977db98c
+    - name: delete deploy
+      run: |
+        kubectl delete deploy example-blue 
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -48,7 +48,7 @@ jobs:
         kubectl delete replicaset example-blue-85977db98c
         echo -n "verifying images:"
         docker images        
-#     - name: Deploy to service
-#       run: 
-#          kubectl apply -f menifest.yml
+    - name: Deploy to service
+      run: 
+         kubectl apply -f menifest.yml
   
