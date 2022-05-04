@@ -32,24 +32,24 @@ spec:
     ports:
         - port: 6000
           targetPort: 6000
-# ---
+---
 
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: myingress
-# spec:
-#   rules:
-#     - host: dipakparmar.com
-#       http:
-#         paths:
-#           - path: /
-#             pathType: Prefix
-#             backend:
-#               service:
-#                 name: example-blue
-#                 port:
-#                   number: 5000
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+spec:
+  rules:
+    - host: stage.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: example-blue
+                port:
+                  number: 6000
 #     - host: stage.com
 #       http:
 #         paths:
