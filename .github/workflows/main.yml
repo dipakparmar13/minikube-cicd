@@ -10,9 +10,6 @@ jobs:
     name: build example
     if: github.ref == 'refs/heads/stage'
     steps:
-    - name: rollout restart 
-      run: |
-        kubectl rollout restart deployment example-green
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -23,18 +20,17 @@ jobs:
         docker build -t dipak ./stage/
         echo -n "verifying images:"
         docker images 
-    - name: Deploy to service
-      run: 
-        kubectl apply -f menifest.yml
-        
+    - name: rollout restart 
+      run: |
+        kubectl rollout restart deployment example-green
   deploy: 
     runs-on: self-hosted
     name: deploy too minikube
     if: github.ref == 'refs/heads/prod'
     steps:
-    - name: rollout restart 
-      run: |
-        kubectl rollout restart deployment example-blue
+    # - name: rollout restart 
+    #   run: |
+    #     kubectl rollout restart deployment example-blue
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -45,7 +41,6 @@ jobs:
         docker build -t dipak ./prod/
         echo -n "verifying images:"
         docker images        
-    - name: Deploy to service
-      run: 
-         kubectl apply -f menifest2.yml
-  
+    - name: rollout restart 
+      run: |
+        kubectl rollout restart deployment example-blue
