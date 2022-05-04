@@ -49,4 +49,11 @@ spec:
                 name: example-green
                 port:
                   number: 5000
-...
+         - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: example-green
+                port:
+                  number: 5000
+
