@@ -58,4 +58,4 @@ spec:
               service:
                 name: example-green
                 port:
-                  number: 6000
+                  number: 5000
