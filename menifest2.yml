@@ -49,13 +49,4 @@ spec:
                 name: example-blue
                 port:
                   number: 5000
-    - host: stage.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: example-green
-                port:
-                  number: 5000
+    
