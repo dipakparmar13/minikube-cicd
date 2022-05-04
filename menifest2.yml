@@ -58,4 +58,4 @@ spec:
               service:
                 name: example-blue
                 port:
-                  number: 5000
+                  number: 6000
