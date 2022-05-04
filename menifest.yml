@@ -31,14 +31,25 @@ spec:
         env: green
     ports:
         - port: 5000
-          targetPort: 6000      
+          targetPort: 5000
 # ---
+
 # apiVersion: networking.k8s.io/v1
 # kind: Ingress
 # metadata:
 #   name: myingress
 # spec:
 #   rules:
+#     - host: dipakparmar.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: example-blue
+#                 port:
+#                   number: 5000
 #     - host: stage.com
 #       http:
 #         paths:
@@ -46,7 +57,6 @@ spec:
 #             pathType: Prefix
 #             backend:
 #               service:
-#                 name: example-green
+#                 name: example-blue
 #                 port:
-#                   number: 6000
-# ...
+#                   number: 5000
