@@ -39,7 +39,7 @@ metadata:
   name: myingress
 spec:
   rules:
-    - host: dipparmar.com
+    - host: dipakparmar.com
       http:
         paths:
           - path: /
