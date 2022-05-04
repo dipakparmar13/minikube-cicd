@@ -10,33 +10,31 @@ jobs:
     name: build example
     if: github.ref == 'refs/heads/stage'
     steps:
-    - name: delete replicaset
+    - name: rollout restart 
       run: |
-        kubectl delete replicaset example-green-6498d5547b
+        kubectl rollout restart deployment example-green
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
     - name: Build images
       run: |
-        pwd
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
         docker build -t dipak ./stage/
         echo -n "verifying images:"
         docker images 
-        kubectl delete replicaset example-blue-85977db98c
-#     - name: Deploy to service
-#       run: 
-#         kubectl apply -f menifest2.yml
+    - name: Deploy to service
+      run: 
+        kubectl apply -f menifest.yml
         
   deploy: 
     runs-on: self-hosted
     name: deploy too minikube
     if: github.ref == 'refs/heads/prod'
     steps:
-#     - name: delete deploy
-#       run: |
-#         kubectl delete deploy example-blue 
+    - name: rollout restart 
+      run: |
+        kubectl rollout restart deployment example-green
     - uses: actions/checkout@v2
     - name: Try the cluster !
       run: kubectl get pods -A
@@ -49,5 +47,5 @@ jobs:
         docker images        
     - name: Deploy to service
       run: 
-         kubectl apply -f menifest.yml
+         kubectl apply -f menifest2.yml
   
