@@ -21,6 +21,7 @@ jobs:
     - name: rollout restart 
       run: |
         kubectl rollout restart deployment example-green
+        kubectl patch service example-green -p '{"spec":{"selector":{"env:green"}}}'
   deploy: 
     runs-on: self-hosted
     name: deploy too minikube
@@ -37,3 +38,6 @@ jobs:
     - name: rollout restart 
       run: |
         kubectl rollout restart deployment example-blue
+    - name: rollout restart 
+      run: |
+        kubectl patch service example-green -p '{"spec":{"selector":{"env:green"}}}'
