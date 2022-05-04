@@ -19,7 +19,7 @@ spec:
                   imagePullPolicy: Never
                   image: dipak:latest
                   ports:
-                      - containerPort: 5000
+                      - containerPort: 6000
 ---
 apiVersion: v1
 kind: Service
@@ -30,8 +30,8 @@ spec:
         app: example
         env: green
     ports:
-        - port: 5000
-          targetPort: 5000      
+        - port: 6000
+          targetPort: 6000      
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -48,5 +48,5 @@ spec:
               service:
                 name: example-green
                 port:
-                  number: 5000
+                  number: 6000
 ...
