@@ -47,7 +47,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: example-blue
+                name: example-green
                 port:
                   number: 6000
 #     - host: stage.com
