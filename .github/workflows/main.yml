@@ -11,8 +11,6 @@ jobs:
     if: github.ref == 'refs/heads/stage'
     steps:
     - uses: actions/checkout@v2
-    - name: Try the cluster !
-      run: kubectl get pods -A
     - name: Build images
       run: |
         export SHELL=/bin/bash
@@ -28,12 +26,7 @@ jobs:
     name: deploy too minikube
     if: github.ref == 'refs/heads/prod'
     steps:
-    # - name: rollout restart 
-    #   run: |
-    #     kubectl rollout restart deployment example-blue
     - uses: actions/checkout@v2
-    # - name: Try the cluster !
-    #   run: kubectl get pods -A
     - name: Build images
       run: |
         export SHELL=/bin/bash
