@@ -20,7 +20,7 @@ jobs:
         docker images 
     - name: rollout restart 
       run: |
-       kubectl apply -f menifest.yml
+       kubectl rollout restart deploy  example-green
 #   deploy: 
 #     runs-on: self-hosted
 #     name: deploy too minikube
