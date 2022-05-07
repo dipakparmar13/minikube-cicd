@@ -3,7 +3,7 @@ on:
  push:
    branches:
      - prod
-     - stage
+   
 jobs:
   stage:
     runs-on: self-hosted
