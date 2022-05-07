@@ -40,7 +40,7 @@ metadata:
   name: stage-ingress
 spec:
   rules:
-    - host: stage.com
+    - host: dipak.info
       http:
         paths:
           - path: /
