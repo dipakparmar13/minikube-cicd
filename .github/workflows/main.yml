@@ -8,19 +8,19 @@ jobs:
   stage:
     runs-on: self-hosted
     name: build example
-    if: github.ref == 'refs/heads/stage'
+    if: github.ref == 'refs/heads/prod'
     steps:
     - uses: actions/checkout@v2
     - name: Build images
       run: |
         export SHELL=/bin/bash
         eval $(minikube -p minikube docker-env)
-        docker build -t dipak ./stage/
+        docker build -t dipak ./prod/
         echo -n "verifying images:"
         docker images 
     - name: rollout restart 
       run: |
-        kubectl rollout restart deployment example-green
+        kubectl rollout restart deployment example-blue
       
 #   deploy: 
 #     runs-on: self-hosted
