@@ -3,7 +3,6 @@ on:
  push:
    branches:
      - prod
-     - stage
 jobs:
   stage:
     runs-on: self-hosted
@@ -20,7 +19,7 @@ jobs:
         docker images 
     - name: rollout restart 
       run: |
-       kubectl apply -f menifest.yml
+       kubectl rollut restart deploy example-stage
 #   deploy: 
 #     runs-on: self-hosted
 #     name: deploy too minikube
